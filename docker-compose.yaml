@@ -1,0 +1,55 @@
+services:
+  keydb:
+    image: eqalpha/keydb:latest
+    container_name: keydb
+    ports:
+      - "6379:6379"
+    volumes:
+      - keydb_data:/data
+    restart: unless-stopped
+    networks:
+      - fml_network
+
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    networks:
+      - fml_network
+    env_file:
+      - ./api/src/configs/.env
+    volumes:
+      - ./api/data:/app/data/db  # путь к базе внутри контейнера api
+      - ./api/logs:/app/data/logs
+    depends_on:
+      - keydb
+      - bot
+    ports:
+      - "8000:8000"
+    restart: always
+
+  bot:
+    build:
+      context: ./bot
+      dockerfile: Dockerfile
+    networks:
+      - fml_network
+    env_file:
+      - ./bot/src/configs/.env
+    volumes:
+      - ./api/data:/app/data/db  # тот же путь к базе, чтобы бот мог работать с ней
+      - ./bot/backups:/app/data/backups  # путь к бэкапам внутри контейнера бота
+      - ./bot/logs:/app/data/logs
+    depends_on:
+      - keydb
+    restart: always
+    command: ["/bin/sh", "-c", "mkdir -p /app/data/logs /app/data/db /app/data/backups && exec uv run -m src.bot"]
+
+volumes:
+  keydb_data:
+    driver: local
+
+networks:
+  fml_network:
+    driver: bridge
+

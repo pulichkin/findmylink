@@ -1,0 +1,37 @@
+{
+  "bookmark_search": {
+    "title": "Bookmark Search",
+    "placeholder": "Enter your query",
+    "no_results": "No bookmarks found",
+    "delete_tooltip": "Delete bookmark (subscription required)"
+  },
+  "tab_search": {
+    "title": "Tab Search",
+    "placeholder": "Enter your query",
+    "no_results": "No tabs found"
+  },
+  "subscription": {
+    "active": "Active until {end_date}",
+    "inactive": "No active subscription",
+    "loading": "Loading subscription status...",
+    "subscribe_button": "Subscribe",
+    "description": "Subscription gives you access to additional features:\n• Search through open tabs\n• Delete bookmarks",
+    "refresh_status": "Refresh status"
+  },
+  "login": {
+    "prompt": "Log in with Telegram to get access to additional features: tab search and bookmark management",
+    "button": "Log in with Telegram",
+    "description": "Log in with Telegram to:\n• Get access to tab search\n• Manage bookmarks\n• Manage subscription"
+  },
+  "search": {
+    "all": "All",
+    "sort": "Sort",
+    "sort_recent": "Recent",
+    "sort_name": "Name",
+    "sort_type": "Type",
+    "try_changing_query": "Try changing your query or filters",
+    "result_singular": "result",
+    "result_plural": "results",
+    "found": "found"
+  }
+}

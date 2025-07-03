@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='UTF-8'>
+  <title>Вход через Telegram</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; display: flex; align-items: flex-start; justify-content: center; min-height: 100vh; background: #f3f4f6; padding-top: 5vh;}
+    .container { background: #fff; padding: 2rem; border-radius: 0.75rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: center; }
+    h1 { font-size: 1.5rem; margin-bottom: 1.5rem; }
+  </style>
+</head>
+<body>
+  <div class='container'>
+    <h1>Войти через Telegram</h1>
+    <div id='telegram-login'></div>
+    <script async src='{{ widget_url }}'
+        data-telegram-login='{{ bot_username }}'
+          data-size='large'
+          data-userpic='false'
+          data-request-access='write'
+          data-onauth='onTelegramAuth(user)'
+          data-lang='ru'>
+    </script>
+    <script>
+        function onTelegramAuth(user) {
+            fetch('/api/v1/auth/telegram', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(user)
+            })
+                .then(r => r.json())
+                .then(data => {
+                    if (data.token) {
+                        window.opener?.postMessage({ type: 'telegram_token', token: data.token }, '*');
+                        window.close();
+                    } else {
+                        alert('Ошибка авторизации');
+                    }
+                });
+        }
+        window.onTelegramAuth = onTelegramAuth;
+    </script>
+    </div>
+</body>
+</html>

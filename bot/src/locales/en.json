@@ -1,0 +1,73 @@
+{
+  "start": {
+    "welcome": "Hello! Use /get_trial to start a 14-day trial or /subscribe to purchase a subscription.",
+    "already_subscribed": "You already have an active subscription! Token: `{token}`"
+  },
+  "get_trial": {
+    "welcome": "Get 14-day trial",
+    "already_subscribed": "You already have an active subscription! Token: `{token}`"
+  },
+  "trial": {
+    "activated": "🎁 Your 14-day trial has been activated! Token: `{token}`",
+    "already_used": "You have already used your trial period. To continue using the service, please purchase a subscription via /subscriptions."
+  },
+  "buy": {
+    "invalid_promo": "❌ Invalid promo code.",
+    "cooldown": "⏳ Please wait 5 minutes before trying another promo code.",
+    "invoice_title": "FindMyLink Subscription",
+    "invoice_description": "Unlocks PRO features",
+    "select_type": "Please select a subscription type: /buy monthly, /buy half_year, /buy yearly",
+    "invalid_type": "❌ Invalid subscription type. Use: /buy monthly, /buy half_year, /buy yearly",
+    "renew_success": "✅ Your subscription has been renewed! Token: `{token}`"
+  },
+  "renew": {
+    "no_subscription": "❌ You have no active subscription to renew. Buy one with /buy.",
+    "select_type": "Please select a subscription type: /renew monthly, /renew half_year, /renew yearly",
+    "invalid_type": "❌ Invalid subscription type. Use: /renew monthly, /renew half_year, /renew yearly",
+    "invoice_title": "FindMyLink Subscription Renewal",
+    "invoice_description": "Renews your PRO subscription",
+    "success": "✅ Your subscription has been renewed! Token: `{token}`"
+  },
+  "payment_success": "Payment successful! Your PRO token: `{token}`",
+  "create_promo": {
+    "no_access": "Access denied.",
+    "success": "✅ Promo code `{code}` with {discount}% discount created.",
+    "invalid_format": "Format: /create_promo CODE DISCOUNT"
+  },
+  "create_subscription": {
+    "no_access": "Access denied.",
+    "success": "✅ Subscription type `{type}` created: {days} days, {price} ⭐.",
+    "invalid_format": "Format: /create_subscription TYPE DURATION_DAYS PRICE"
+  },
+  "delete_subscription": {
+    "no_access": "Access denied.",
+    "success": "✅ Subscription type `{type}` deleted.",
+    "not_found": "❌ Subscription type `{type}` not found.",
+    "invalid_format": "Format: /delete_subscription TYPE"
+  },
+  "list_subscriptions": {
+    "header": "Available subscription types:",
+    "item": "📌 {type}: {days} days, {price} ⭐",
+    "empty": "No subscription types available."
+  },
+  "active_subscriptions": {
+    "no_access": "Access denied.",
+    "header": "Active subscriptions:",
+    "item": "👤 User {user_id}: {type}, {days_left} days left (Token: `{token}`)",
+    "empty": "No active subscriptions."
+  },
+  "my_subscription": {
+    "header": "Your subscription:",
+    "item": "📌 {type}, {days_left} days left (Token: `{token}`)",
+    "none": "You have no active subscription. Start a trial with /start or buy one with /buy."
+  },
+  "subscription": {
+    "active": "Active until {end_date}",
+    "inactive": "No active subscription",
+    "db_error": "⚠️ Technical error: database unavailable. Please try again later."
+  },
+  "subscription_expiring": "⚠️ Your FindMyLink subscription expires in less than 24 hours! Renew with /buy.",
+  "payment": {
+    "error": "❌ An error occurred while processing your payment. Please try again later or contact support."
+  }
+}

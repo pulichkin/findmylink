@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+*.egg-info/
+dist/
+build/
+
+# Node.js
+node_modules/
+dist/
+npm-debug.log
+yarn-error.log
+
+# Docker
+*.dockerignore
+docker-compose.yml
+
+# SQLite
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+api/src/data/
+
+
+# Logs
+api/logs/
+bot/logs/
+
+# Firebase
+firebase-credentials.json
+
+# IDEs
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Misc
+*.log
+*.tmp
+*.temp
+*.bak
+*.zip
+
+# Envs
+.env

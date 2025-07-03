@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Вход через Telegram</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f3f4f6;
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .auth-container {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .auth-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #1e293b;
+    }
+
+    .auth-desc {
+      font-size: 1rem;
+      color: #64748b;
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+
+    .telegram-login-button {
+      width: 100%;
+      background: #0088cc;
+      color: #fff;
+      padding: 1rem 1.5rem;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      text-decoration: none;
+    }
+
+    .telegram-login-button:hover {
+      background: #0077b3;
+    }
+
+    .telegram-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+
+    #telegram-login {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-title">Войти через Telegram</div>
+    <div class="auth-desc">
+      Войдите через Telegram, чтобы:<br>
+      • Получить доступ к поиску по вкладкам<br>
+      • Управлять закладками<br>
+      • Управлять подпиской
+    </div>
+    <div id="telegram-login"></div>
+  </div>
+
+  <script async src="https://telegram.org/js/telegram-widget.js?22"
+          data-telegram-login="findmlbot"
+          data-size="large"
+          data-userpic="false"
+          data-request-access="write"
+          data-onauth="onTelegramAuth(user)"
+          data-lang="ru">
+  </script>
+  <script type="module" src="auth-widget.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+telegram:
+  bot_token: ${BOT_TOKEN}
+  payment_provider_token: ${PAYMENT_PROVIDER_TOKEN}
+  admin_ids: ${ADMIN_IDS}
+  bot_id: ${TELEGRAM_BOT_ID}
+  bot_username: ${TELEGRAM_BOT_USERNAME}
+  bot_name: ${TELEGRAM_BOT_NAME}
+  oauth_url: ${TELEGRAM_OAUTH_URL}
+  widget_url: ${TELEGRAM_WIDGET_URL}
+  webapp_data: ${TELEGRAM_WEBAPP_DATA}
+  base_url: ${BASE_URL}
+jwt:
+  secret: ${JWT_SECRET}
+  algorithm: ${JWT_ALGORITHM}
+  expiry_days: ${JWT_EXPIRY_DAYS}
+database:
+  path: ${SUBSCRIPTION_DB_PATH}
+  default_lang: ${DEFAULT_LANG}
+  default_trial_used: ${DEFAULT_TRIAL_USED}
+  default_auto_renewal: ${DEFAULT_AUTO_RENEWAL}
+redis:
+  url: ${REDIS_URL}
+  decode_responses: ${REDIS_DECODE_RESPONSES}
+  default_ttl: ${REDIS_DEFAULT_TTL}
+rate_limit:
+  window: ${RATE_LIMIT_WINDOW}
+  max_requests: ${RATE_LIMIT_MAX_REQUESTS}
+cors:
+  allow_origins: ${CORS_ALLOW_ORIGINS}
+  allow_methods: ${CORS_ALLOW_METHODS}
+  allow_headers: ${CORS_ALLOW_HEADERS}
+logging:
+  level: ${LOG_LEVEL}
+  format: ${LOG_FORMAT}
+  file: ${LOG_FILE}
+security:
+  hash_algorithm: ${HASH_ALGORITHM}
+  hmac_digest: ${HMAC_DIGEST}
+api:
+  secret_key: ${API_SECRET_KEY}
+  base_url: ${API_BASE_URL}
+extension_links:
+  chrome_url: ${EXT_CHROME_URL}
+  firefox_url: ${EXT_FIREFOX_URL}
+  edge_url: ${EXT_EDGE_URL}

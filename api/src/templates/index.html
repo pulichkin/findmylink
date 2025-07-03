@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>FindMyLink - Instant Bookmark & Tab Search Extension | Find Any Link in Seconds</title>
+    <meta name="title" content="FindMyLink - Instant Bookmark & Tab Search Extension | Find Any Link in Seconds">
+    <meta name="description" content="Search through your bookmarks and open tabs instantly with FindMyLink browser extension. Lightning-fast search, smart matching, and keyboard shortcuts for Chrome, Firefox & Edge.">
+    <meta name="keywords" content="bookmark search, tab search, browser extension, chrome extension, firefox addon, productivity tool, bookmark manager, tab manager, search extension, browser productivity">
+    <meta name="author" content="FindMyLink">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://findmylink.ru/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://findmylink.ru/">
+    <meta property="og:title" content="FindMyLink - Instant Bookmark & Tab Search Extension">
+    <meta property="og:description" content="Search through your bookmarks and open tabs instantly with FindMyLink browser extension. Lightning-fast search, smart matching, and keyboard shortcuts.">
+    <meta property="og:image" content="https://findmylink.ru/images/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="FindMyLink">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://findmylink.ru/">
+    <meta property="twitter:title" content="FindMyLink - Instant Bookmark & Tab Search Extension">
+    <meta property="twitter:description" content="Search through your bookmarks and open tabs instantly with FindMyLink browser extension. Lightning-fast search, smart matching, and keyboard shortcuts.">
+    <meta property="twitter:image" content="https://findmylink.ru/images/twitter-image.jpg">
+    <meta property="twitter:creator" content="@findmylink">
+    <meta property="twitter:site" content="@findmylink">
+
+    <!-- Additional Meta Tags -->
+    <meta name="theme-color" content="#667eea">
+    <meta name="msapplication-TileColor" content="#667eea">
+    <meta name="application-name" content="FindMyLink">
+    <meta name="apple-mobile-web-app-title" content="FindMyLink">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.ru">
+    <link rel="preconnect" href="https://fonts.gstatic.ru" crossorigin>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "FindMyLink",
+        "description": "Search through your bookmarks and open tabs instantly with FindMyLink browser extension. Lightning-fast search, smart matching, and keyboard shortcuts.",
+        "url": "https://findmylink.ru",
+        "applicationCategory": "BrowserApplication",
+        "operatingSystem": "Chrome, Firefox, Edge",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "1250"
+        },
+        "author": {
+            "@type": "Organization",
+            "name": "FindMyLink",
+            "url": "https://findmylink.ru"
+        },
+        "downloadUrl": [
+            "https://chrome.google.ru/webstore/detail/findmylink",
+            "https://addons.mozilla.org/firefox/addon/findmylink",
+            "https://microsoftedge.microsoft.ru/addons/detail/findmylink"
+        ],
+        "screenshot": "https://findmylink.ru/images/screenshot.jpg",
+        "featureList": [
+            "Instant bookmark search",
+            "Open tab search",
+            "Smart matching algorithm",
+            "Keyboard shortcuts",
+            "Privacy-first approach",
+            "Real-time results"
+        ]
+    }
+    </script>
+
+    <!-- Additional Structured Data for Organization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "FindMyLink",
+        "url": "https://findmylink.ru",
+        "logo": "https://findmylink.ru/images/logo.png",
+        "sameAs": [
+            "https://twitter.ru/findmylink",
+            "https://github.ru/findmylink"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "email": "support@findmylink.ru"
+        }
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.3s forwards;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.3);
+        }
+
+        /* Features Section */
+        .features {
+            background: white;
+            padding: 80px 0;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .feature-card p {
+            color: #666;
+        }
+
+        /* Demo Section */
+        .demo {
+            background: #f8f9fa;
+            padding: 80px 0;
+        }
+
+        .demo h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .search-demo {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 1.1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 50px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .search-input:focus {
+            border-color: #667eea;
+        }
+
+        .search-results {
+            margin-top: 1rem;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .result-item {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            border-bottom: 1px solid #f0f0f0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .result-item:hover {
+            background-color: #f8f9fa;
+        }
+
+        .result-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            border-radius: 3px;
+        }
+
+        .result-content {
+            flex: 1;
+        }
+
+        .result-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 4px;
+        }
+
+        .result-url {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .result-type {
+            background: #667eea;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            margin-left: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        .typing-cursor {
+            animation: pulse 1s infinite;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo" aria-label="FindMyLink Home">🔍 FindMyLink</a>
+            <ul class="nav-links">
+                <li><a href="#features" aria-label="View Features">Features</a></li>
+                <li><a href="#install" aria-label="Install Extension">Install</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 id="hero-title">Find Any Link in Seconds</h1>
+                    <p>Search through your bookmarks and open tabs instantly with our powerful browser extension. Boost your productivity with lightning-fast search capabilities.</p>
+                    <a href="#install" class="cta-button" aria-label="Download FindMyLink Extension">Get Extension Free</a>
+                </div>
+            </div>
+        </section>
+        <section class="features" id="features" aria-labelledby="features-title">
+            <div class="container">
+                <h2 id="features-title">Powerful Search Features</h2>
+                <div class="features-grid">
+                    <article class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">📚</div>
+                        <h3>Bookmark Search</h3>
+                        <p>Instantly search through all your saved bookmarks with intelligent matching and filtering algorithms</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">🗂️</div>
+                        <h3>Tab Search</h3>
+                        <p>Find any open tab across all browser windows with lightning-fast search capabilities and smart organization</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">⚡</div>
+                        <h3>Instant Results</h3>
+                        <p>Get results as you type with real-time search and smart autocomplete suggestions for maximum efficiency</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">🎯</div>
+                        <h3>Smart Matching</h3>
+                        <p>Advanced algorithms match titles, URLs, and content for the most relevant results every time</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">🔒</div>
+                        <h3>Privacy First</h3>
+                        <p>All searches happen locally in your browser - your data never leaves your device, ensuring complete privacy</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+        <section class="features" id="install" aria-labelledby="install-title">
+            <div class="container">
+                <h2 id="install-title">Install FindMyLink Browser Extension</h2>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <p style="font-size: 1.2rem; margin-bottom: 2rem; color: #666;">
+                        Available for Chrome, Firefox, and Microsoft Edge browsers. Free download with no registration required.
+                    </p>
+                    <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                        <a href="{{ chrome_url }}" class="cta-button" style="background: #4285f4;" aria-label="Download for Chrome">Chrome Web Store</a>
+                        <a href="{{ firefox_url }}" class="cta-button" style="background: #ff9500;" aria-label="Download for Firefox">Firefox Add-ons</a>
+                        <a href="{{ edge_url }}" class="cta-button" style="background: #0078d4;" aria-label="Download for Edge">Edge Add-ons</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer role="contentinfo">
+        <div class="container">
+            <p>&copy; 2025 FindMyLink. Built for productivity enthusiasts. <a href="/privacy" style="color: #ccc;">Privacy Policy</a> | <a href="/terms" style="color: #ccc;">Terms of Service</a></p>
+        </div>
+    </footer>
+</body>
+</html>

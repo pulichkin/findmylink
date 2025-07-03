@@ -1,0 +1,22 @@
+[project]
+name = "findmylink-bot"
+version = "0.1.0"
+description = "Telegram bot for FindMyLink service"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "aiosqlite>=0.21.0",
+    "nest-asyncio>=1.6.0",
+    "python-dotenv>=1.1.0",
+    "python-telegram-bot[job-queue]>=22.1",
+    "redis>=6.2.0",
+    "config-lib-msgspec>=0.0.5",
+    "msgspec>=0.18.5",
+    "aiohttp>=3.12.13",
+    "sqlalchemy[asyncio]>=2.0.41",
+    "ruff>=0.12.0",
+    "python-dateutil>=2.9.0.post0",
+]
+
+[project.scripts]
+bot = "src.bot:main"

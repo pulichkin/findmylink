@@ -1,0 +1,36 @@
+telegram:
+  bot_token: ${BOT_TOKEN}
+  payment_provider_token: ${PAYMENT_PROVIDER_TOKEN}
+  admin_ids: ${ADMIN_IDS}
+
+database:
+  path: ${SUBSCRIPTION_DB_PATH}
+  default_lang: ${DEFAULT_LANG}
+  default_trial_used: ${DEFAULT_TRIAL_USED}
+  default_auto_renewal: ${DEFAULT_AUTO_RENEWAL}
+
+redis:
+  host: ${REDIS_HOST}
+  port: ${REDIS_PORT}
+  db: ${REDIS_DB}
+  decode_responses: ${REDIS_DECODE_RESPONSES}
+  default_ttl: ${REDIS_DEFAULT_TTL}
+
+rate_limit:
+  max_attempts: ${RATE_LIMIT_MAX_ATTEMPTS}
+  block_minutes: ${RATE_LIMIT_BLOCK_MINUTES}
+
+subscription:
+  trial_days: ${TRIAL_DAYS}
+  price: ${PRICE}
+
+logging:
+  level: ${LOG_LEVEL}
+  format: ${LOG_FORMAT}
+  file: ${LOG_FILE}
+
+api:
+  url: ${API_URL}
+
+backup:
+  dir: ${BACKUP_PATH}

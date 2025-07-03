@@ -1,0 +1,25 @@
+[project]
+name = "api"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "aiosqlite>=0.21.0",
+    "litestar[jinja]>=2.16.0",
+    "multipart>=1.2.0,<2.0",
+    "pydantic>=2.11.7",
+    "python-dotenv>=1.1.0",
+    "redis>=6.2.0",
+    "msgspec>=0.18.6",
+    "config-lib-msgspec>=0.0.5",
+    "pyyaml>=6.0.0",
+    "granian>=2.3.4",
+    "sqlalchemy[asyncio]>=2.0.41",
+    "alembic>=1.16.2",
+    "pytest>=8.4.1",
+    "pytest-asyncio>=1.0.0",
+    "advanced-alchemy>=1.4.4",
+    "PyJWT>=2.8.0",
+    "ruff>=0.12.1",
+]

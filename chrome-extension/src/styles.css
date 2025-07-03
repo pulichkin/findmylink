@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.popup-container {
+  width: 380px;
+  height: 600px;
+  min-width: 380px;
+  min-height: 600px;
+  padding: 1rem;
+  @apply bg-white flex flex-col justify-between;
+}
+
+/* Общие стили для кнопок */
+.telegram-login-button,
+.subscription-status a {
+  @apply w-full bg-[#0088cc] text-white px-4 py-2 rounded hover:bg-[#0077b3] transition-colors text-center font-medium flex items-center justify-center gap-2;
+}
+
+.results-list {
+  @apply w-full mt-2 overflow-y-auto;
+  max-height: 20rem;
+}
+
+.results-list li {
+  @apply w-full flex justify-between items-center py-1 px-2 hover:bg-gray-50;
+}
+
+.results-list a {
+  @apply flex-1 text-blue-600 hover:underline truncate mr-2;
+}
+
+/* Subscription status circle */
+.status-circle {
+  @apply w-3 h-3 rounded-full;
+}
+
+/* Стили для скроллбара */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 rounded;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-400 rounded hover:bg-gray-500;
+} 
