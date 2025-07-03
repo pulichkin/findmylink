@@ -1,6 +1,6 @@
 # ИМЯ
 
-**findmylink** — сервис для быстрого поиска, управления закладками и подписками через Telegram-бота, API и браузерное расширение.
+**findmylink** — браузерное расширение, для быстрого поиска - вкладок и закладок и подписками через Telegram-бота, API.
 
 # СИНТАКСИС
 
@@ -16,8 +16,8 @@ findmylink/chrome-extension  # Chrome-расширение (TypeScript, Vite)
 
 # ОПИСАНИЕ
 
-- **API**: Асинхронный backend на Python (Litestar + SQLAlchemy), поддержка JWT, миграции, шаблоны Jinja2, интеграция с Redis и SQLite.
-- **Telegram-бот**: Управление подписками, триалами, промокодами, интеграция с API и Redis.
+- **API**: Асинхронный backend на Python (Litestar + SQLAlchemy), поддержка JWT, миграции, шаблоны Jinja2, интеграция с KeyDB и SQLite.
+- **Telegram-бот**: Управление подписками, триалами, промокодами, интеграция с API и KeyDB.
 - **Chrome-расширение**: Поиск по закладкам и вкладкам, авторизация через Telegram, централизованная конфигурация, локализация.
 - **Инфраструктура**: Docker Compose, KeyDB/Redis, миграции, логирование, HTTPS/nginx-ready.
 
@@ -38,7 +38,7 @@ findmylink/chrome-extension  # Chrome-расширение (TypeScript, Vite)
 
 # АВТОР
 
-- [Александр Пулычкин](https://github.com/pulichkin)
+- [Александр Пуличкин](https://github.com/pulichkin)
 
 # СМОТРИТЕ ТАКЖЕ
 
