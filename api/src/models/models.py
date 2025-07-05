@@ -109,6 +109,9 @@ class SubscriptionResponse(Struct):
     trial_used: bool = False
     auto_renewal: bool = True
     lang: str = "ru"
+    subtype: str = "trial"
+    created_at: Optional[str] = None
+    updated_at: Optional[str] = None
 
 
 class PromoApplyResponse(Struct):
