@@ -32,6 +32,13 @@
     "try_changing_query": "Try changing your query or filters",
     "result_singular": "result",
     "result_plural": "results",
-    "found": "found"
+    "found": "found",
+    "active": "Active",
+    "remove_bookmark": "Remove bookmark",
+    "add_bookmark": "Add to bookmarks",
+    "open_in_new_tab": "Open in new tab",
+    "just_now": "Just now",
+    "hours_ago": "hours ago",
+    "days_ago": "days ago"
   }
 }

@@ -172,11 +172,11 @@ function setupUnifiedSearch(container: HTMLElement, userId: string, options?: { 
 
   // Results + Footer в flex-колонке
   const resultsFooterWrap = document.createElement('div');
-  resultsFooterWrap.className = 'flex flex-col flex-1 min-h-0';
+  resultsFooterWrap.className = 'flex flex-col';
 
   // Results
   const resultsDiv = document.createElement('div');
-  resultsDiv.className = 'flex-1 max-h-[400px] overflow-y-auto p-2';
+  resultsDiv.className = 'max-h-[380px] overflow-y-auto p-2';
   resultsFooterWrap.appendChild(resultsDiv);
 
   root.appendChild(resultsFooterWrap);
@@ -184,7 +184,7 @@ function setupUnifiedSearch(container: HTMLElement, userId: string, options?: { 
 
   // Footer (перемещаем после root, перед bottom-content)
   const footer = document.createElement('div');
-  footer.className = 'p-2 border-t bg-gray-50 text-center text-xs text-gray-500 mb-0';
+  footer.className = 'p-2 border-t bg-gray-50 text-center text-xs text-gray-500';
   resultsFooterWrap.appendChild(footer);
 
   // --- Data Fetching ---
@@ -327,7 +327,7 @@ function setupUnifiedSearch(container: HTMLElement, userId: string, options?: { 
         if (result.isActive) {
           const badge = document.createElement('span');
           badge.className = 'ml-2 px-2 py-0.5 rounded bg-green-200 text-green-800 text-xs';
-          badge.textContent = 'Active';
+          badge.textContent = t('search.active');
           titleRow.appendChild(badge);
         }
         contentDiv.appendChild(titleRow);
@@ -357,9 +357,9 @@ function setupUnifiedSearch(container: HTMLElement, userId: string, options?: { 
               dateBadge.className = 'ml-2 text-xs text-gray-400';
               const now = new Date();
               const diff = (now.getTime() - result.lastAccessed.getTime()) / (1000 * 60 * 60);
-              if (diff < 1) dateBadge.textContent = 'Только что';
-              else if (diff < 24) dateBadge.textContent = `${Math.floor(diff)}ч назад`;
-              else dateBadge.textContent = `${Math.floor(diff / 24)}д назад`;
+              if (diff < 1) dateBadge.textContent = t('search.just_now');
+              else if (diff < 24) dateBadge.textContent = `${Math.floor(diff)}ч ${t('search.hours_ago')}`;
+              else dateBadge.textContent = `${Math.floor(diff / 24)}д ${t('search.days_ago')}`;
               leftRow.appendChild(dateBadge);
             }
           });
@@ -369,9 +369,9 @@ function setupUnifiedSearch(container: HTMLElement, userId: string, options?: { 
           dateBadge.className = 'text-xs text-gray-400';
           const now = new Date();
           const diff = (now.getTime() - result.lastAccessed.getTime()) / (1000 * 60 * 60);
-          if (diff < 1) dateBadge.textContent = 'Только что';
-          else if (diff < 24) dateBadge.textContent = `${Math.floor(diff)}ч назад`;
-          else dateBadge.textContent = `${Math.floor(diff / 24)}д назад`;
+          if (diff < 1) dateBadge.textContent = t('search.just_now');
+          else if (diff < 24) dateBadge.textContent = `${Math.floor(diff)}ч ${t('search.hours_ago')}`;
+          else dateBadge.textContent = `${Math.floor(diff / 24)}д ${t('search.days_ago')}`;
           leftRow.appendChild(dateBadge);
         }
         row.appendChild(leftRow);
@@ -384,7 +384,7 @@ function setupUnifiedSearch(container: HTMLElement, userId: string, options?: { 
         if (result.type === 'bookmark') {
           // Закладка: синяя закрашенная звезда
           favBtn.innerHTML = `<svg class="h-4 w-4 text-blue-600" fill="currentColor" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 17.27 18.18 21 15.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 8.46 13.97 5.82 21 12 17.27"/></svg>`;
-          favBtn.title = 'Удалить из закладок';
+          favBtn.title = t('search.remove_bookmark');
           favBtn.onclick = (e) => {
             e.stopPropagation();
             chrome.bookmarks.remove(result.id, () => {
@@ -402,7 +402,7 @@ function setupUnifiedSearch(container: HTMLElement, userId: string, options?: { 
           const isBookmarked = bookmarkUrls.has(result.url);
           if (isBookmarked) {
             favBtn.innerHTML = `<svg class="h-4 w-4 text-green-600" fill="currentColor" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 17.27 18.18 21 15.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 8.46 13.97 5.82 21 12 17.27"/></svg>`;
-            favBtn.title = 'Удалить из закладок';
+            favBtn.title = t('search.remove_bookmark');
             favBtn.disabled = false;
             favBtn.onclick = (e) => {
               e.stopPropagation();
@@ -427,7 +427,7 @@ function setupUnifiedSearch(container: HTMLElement, userId: string, options?: { 
             };
           } else {
             favBtn.innerHTML = `<svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 17.27 18.18 21 15.54 13.97 22 9.24 14.81 8.63 12 2 9.19 8.63 2 9.24 8.46 13.97 5.82 21 12 17.27"/></svg>`;
-            favBtn.title = 'Добавить в закладки';
+            favBtn.title = t('search.add_bookmark');
             favBtn.onclick = (e) => {
               e.stopPropagation();
               chrome.bookmarks.create({ title: result.title, url: result.url }, () => {
@@ -446,7 +446,7 @@ function setupUnifiedSearch(container: HTMLElement, userId: string, options?: { 
         const openBtn = document.createElement('button');
         openBtn.className = 'h-6 w-6 p-0 opacity-60 hover:opacity-100';
         openBtn.innerHTML = iconExternalLink();
-        openBtn.title = 'Открыть в новой вкладке';
+        openBtn.title = t('search.open_in_new_tab');
         openBtn.onclick = (e) => {
           e.stopPropagation();
           if (result.url) chrome.tabs.create({ url: result.url });
@@ -473,19 +473,18 @@ function setupUnifiedSearch(container: HTMLElement, userId: string, options?: { 
  * Рендерит UI для неавторизованного пользователя.
  */
 function renderLoggedOutView() {
-  app.innerHTML = `<div class="top-content flex-grow flex flex-col"></div><div class="bottom-content"></div>`;
+  app.innerHTML = `<div class="top-content flex-grow flex flex-col"></div>`;
   const searchContainer = app.querySelector('.top-content') as HTMLElement;
+  // Получаем ссылку на resultsFooterWrap из setupUnifiedSearch
+  let footerEl: HTMLElement | null = null;
   setupUnifiedSearch(searchContainer, 'anonymous', { onlyBookmarks: true });
-  const bottom = app.querySelector('.bottom-content') as HTMLElement;
-  bottom.innerHTML = `
-    <p class="text-sm text-gray-600 text-center mb-2 whitespace-pre-line">${t('login.description')}</p>
-    <div id="login-button-container"></div>
-  `;
-  const loginButtonContainer = document.getElementById('login-button-container');
-  if (loginButtonContainer) {
+  // Найти футер (footer) после рендера
+  footerEl = searchContainer.querySelector('.p-2.border-t.bg-gray-50.text-center.text-xs.text-gray-500');
+  if (footerEl) {
     const loginButton = document.createElement('button');
     loginButton.type = 'button';
-    loginButton.className = 'telegram-login-button w-full py-2 px-4 bg-[#0088cc] text-white rounded-lg hover:bg-[#0077b3] transition-colors flex items-center justify-center gap-2';
+    loginButton.className = 'telegram-login-button w-full mt-2 py-2 px-4 bg-[#0088cc] text-white rounded-lg hover:bg-[#0077b3] transition-colors flex items-center justify-center gap-2';
+    loginButton.title = t('login.description');
     // Добавляем иконку Telegram
     const telegramIcon = document.createElement('img');
     telegramIcon.src = chrome.runtime.getURL('icons/telegram.svg');
@@ -495,19 +494,9 @@ function renderLoggedOutView() {
     const span = document.createElement('span');
     span.textContent = t('login.button');
     loginButton.appendChild(span);
-    loginButton.onclick = () => {
-      const authUrl = `${CONFIG.API.BASE_URL}${CONFIG.API.ENDPOINTS.EXTENSION_AUTH}`;
-      window.open(authUrl, 'telegram_auth', 'width=500,height=600,scrollbars=no');
-      // Слушаем postMessage с токеном
-      function handler(event: MessageEvent) {
-        if (event.data?.type === CONFIG.MESSAGES.TELEGRAM_TOKEN && event.data.token) {
-          chrome.runtime.sendMessage({ type: CONFIG.MESSAGES.TELEGRAM_TOKEN, token: event.data.token });
-          window.removeEventListener('message', handler);
-        }
-      }
-      window.addEventListener('message', handler);
-    };
-    loginButtonContainer.appendChild(loginButton);
+    loginButton.onclick = openTelegramAuthPopup;
+    // Вставляем кнопку сразу после футера
+    footerEl.insertAdjacentElement('afterend', loginButton);
   }
 }
 
@@ -515,52 +504,62 @@ function renderLoggedOutView() {
  * Рендерит UI для пользователя без активной подписки.
  */
 function renderLoggedInNoSubscriptionView(userId: string) {
-  app.innerHTML = `<div class="top-content flex-grow flex flex-col"></div><div class="bottom-content"></div>`;
+  app.innerHTML = `<div class="top-content flex-grow flex flex-col"></div>`;
   const searchContainer = app.querySelector('.top-content') as HTMLElement;
   setupUnifiedSearch(searchContainer, userId, { onlyBookmarks: true });
-  const bottom = app.querySelector('.bottom-content') as HTMLElement;
-  bottom.innerHTML = `
-    <p class="text-sm text-gray-600 text-center mb-2 whitespace-pre-line">${t('subscription.description')}</p>
-    <button id="subscribe-button" class="telegram-login-button">${t('subscription.subscribe_button')}</button>
-    <button id="refresh-status-button" class="w-full mt-2 text-sm text-gray-500 hover:text-gray-700">${t('subscription.refresh_status')}</button>
-  `;
-  document.getElementById('subscribe-button')!.onclick = () => {
-    window.open(`${getBotStartUrl()}?start=subscribe`, '_blank');
-  };
-  document.getElementById('refresh-status-button')!.onclick = () => {
-    window.location.reload();
-  };
+  // Найти футер (footer) после рендера
+  const footerEl = searchContainer.querySelector('.p-2.border-t.bg-gray-50.text-center.text-xs.text-gray-500');
+  if (footerEl) {
+    // Описание преимуществ подписки (tooltip)
+    const subscribeButton = document.createElement('button');
+    subscribeButton.type = 'button';
+    subscribeButton.className = 'telegram-login-button w-full mt-2';
+    subscribeButton.textContent = t('subscription.subscribe_button');
+    subscribeButton.title = t('subscription.description');
+    subscribeButton.onclick = () => {
+      window.open(`${getBotStartUrl()}?start=subscribe`, '_blank');
+    };
+    const refreshButton = document.createElement('button');
+    refreshButton.type = 'button';
+    refreshButton.className = 'w-full mt-2 text-sm text-gray-500 hover:text-gray-700';
+    refreshButton.textContent = t('subscription.refresh_status');
+    refreshButton.onclick = () => {
+      window.location.reload();
+    };
+    // Вставляем кнопки сразу после футера
+    footerEl.insertAdjacentElement('afterend', refreshButton);
+    footerEl.insertAdjacentElement('afterend', subscribeButton);
+  }
 }
 
 /**
  * Рендерит UI для пользователя с активной подпиской.
  */
 function renderLoggedInWithSubscriptionView(userId: string, subscription: any) {
-  const endDate = new Date(subscription.end_date);
-  const now = new Date();
-  const twoWeeksFromNow = new Date(now.getTime() + 14 * 24 * 60 * 60 * 1000);
-
-  let statusColor = 'bg-red-500'; // неактивна
-  if (subscription.active) {
-    statusColor = endDate > twoWeeksFromNow ? 'bg-green-500' : 'bg-yellow-500';
-  }
-
-  const formattedDate = subscription.active ? endDate.toLocaleDateString() : '';
-
-  app.innerHTML = `
-    <div class="top-content flex-grow flex flex-col">
-    </div>
-    <div class="bottom-content">
-      <div class="flex items-center justify-center text-sm text-gray-800">
-        <div class="status-circle ${statusColor} mr-2"></div>
-        <span>${t(subscription.active ? 'subscription.active' : 'subscription.inactive', { end_date: formattedDate })}</span>
-      </div>
-    </div>
-  `;
-  
-  const searchContainer = app.querySelector('.top-content');
-  if (searchContainer) {
-    setupUnifiedSearch(searchContainer as HTMLElement, userId);
+  app.innerHTML = `<div class="top-content flex-grow flex flex-col"></div>`;
+  const searchContainer = app.querySelector('.top-content') as HTMLElement;
+  setupUnifiedSearch(searchContainer, userId);
+  // Найти футер (footer) после рендера
+  const footerEl = searchContainer.querySelector('.p-2.border-t.bg-gray-50.text-center.text-xs.text-gray-500');
+  if (footerEl) {
+    const endDate = new Date(subscription.end_date);
+    const now = new Date();
+    const twoWeeksFromNow = new Date(now.getTime() + 14 * 24 * 60 * 60 * 1000);
+    let statusColor = 'bg-red-500';
+    if (subscription.active) {
+      statusColor = endDate > twoWeeksFromNow ? 'bg-green-500' : 'bg-yellow-500';
+    }
+    const formattedDate = subscription.active ? endDate.toLocaleDateString() : '';
+    const statusDiv = document.createElement('div');
+    statusDiv.className = 'flex items-center justify-center text-sm text-gray-800';
+    const statusCircle = document.createElement('div');
+    statusCircle.className = `status-circle ${statusColor} mr-2`;
+    statusDiv.appendChild(statusCircle);
+    const statusText = document.createElement('span');
+    statusText.textContent = t(subscription.active ? 'subscription.active' : 'subscription.inactive', { end_date: formattedDate });
+    statusDiv.appendChild(statusText);
+    // Вставляем статус сразу после футера
+    footerEl.insertAdjacentElement('afterend', statusDiv);
   }
 }
 
@@ -587,7 +586,7 @@ function getPluralizedFooterText(count: number): string {
 
 async function main() {
   console.log('DOM loaded, initializing extension');
-  
+
   // Используем getAcceptLanguages, чтобы определить предпочитаемый язык контента пользователя
   chrome.i18n.getAcceptLanguages(async (languages) => {
     const lang = languages[0] || 'en'; // Берем самый предпочитаемый язык
@@ -634,4 +633,22 @@ chrome.runtime.onMessage.addListener((message) => {
     console.log('Token updated, reloading popup...');
     window.location.reload();
   }
-}); 
+});
+
+// Функция для открытия popup авторизации через Telegram
+function openTelegramAuthPopup() {
+  const extOrigin = window.location.origin;
+  const authUrl = `https://findmylink.ru/extension-auth?origin=${encodeURIComponent(extOrigin)}`;
+  const popup = window.open(authUrl, 'telegram_auth', 'width=500,height=600');
+  function handleMessage(event: MessageEvent) {
+    if (event.origin !== 'https://findmylink.ru') return;
+    if (event.data?.type === 'telegram_token' && event.data.token) {
+      chrome.storage.local.set({ findmylink_token: event.data.token }, () => {
+        window.location.reload();
+      });
+      window.removeEventListener('message', handleMessage);
+      if (popup) popup.close();
+    }
+  }
+  window.addEventListener('message', handleMessage);
+}

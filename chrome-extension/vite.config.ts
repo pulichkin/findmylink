@@ -10,9 +10,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         popup: resolve(__dirname, 'src/popup.ts'),
-        background: resolve(__dirname, 'src/background.ts'),
-        "auth-page": resolve(__dirname, 'src/auth-page.ts'),
-        "auth-widget": resolve(__dirname, 'src/auth-widget.ts')
+        background: resolve(__dirname, 'src/background.ts')
       },
       output: {
         entryFileNames: '[name].js',

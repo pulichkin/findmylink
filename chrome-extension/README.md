@@ -39,7 +39,7 @@ $ npm run dev
 
 # АВТОР
 
-- [Александр Пулычкин](https://github.com/pulichkin)
+- [Александр Пуличкин](https://github.com/pulichkin)
 
 # СМОТРИТЕ ТАКЖЕ
 

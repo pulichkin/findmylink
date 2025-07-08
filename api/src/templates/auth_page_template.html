@@ -31,7 +31,14 @@
                 .then(r => r.json())
                 .then(data => {
                     if (data.token) {
-                        window.opener?.postMessage({ type: 'telegram_token', token: data.token }, '*');
+                        // Получаем state или другие параметры из шаблона
+                        const state = '{{ state|default("") }}';
+                        // Origin для postMessage (вычислен на сервере)
+                        const targetOrigin = '{{ origin|default("*") }}';
+                        // Формируем payload
+                        const payload = { type: 'telegram_token', token: data.token };
+                        if (state) payload.state = state;
+                        window.opener?.postMessage(payload, targetOrigin);
                         window.close();
                     } else {
                         alert('Ошибка авторизации');

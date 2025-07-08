@@ -302,12 +302,15 @@ async def get_profile(
 
 
 @get("/extension-auth")
-async def extension_auth_page() -> Template:
+async def extension_auth_page(request: Request) -> Template:
+    # Пробрасываем все query параметры в шаблон
+    params = dict(request.query_params)
     return Template(
         template_name="auth_page_template.html",
         context={
             "widget_url": config.telegram.widget_url,
             "bot_username": config.telegram.bot_username,
+            **params,  # все query параметры будут доступны в шаблоне
         },
     )
 

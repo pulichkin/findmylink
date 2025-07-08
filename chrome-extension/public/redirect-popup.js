@@ -3,7 +3,7 @@ if (window.location.pathname.endsWith('index.html')) {
   window.open(
     chrome.runtime.getURL('normal_popup.html'),
     'findmylink_popup',
-    'width=400,height=600'
+    'width=380,height=600'
   );
   window.close();
-} 
+}
