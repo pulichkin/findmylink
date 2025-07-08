@@ -44,10 +44,25 @@ services:
       - keydb
     restart: always
     command: ["/bin/sh", "-c", "mkdir -p /app/data/logs /app/data/db /app/data/backups && exec uv run -m src.bot"]
+      
+  caddy:
+    image: caddy:2
+    container_name: caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      - fml_network
 
 volumes:
   keydb_data:
-    driver: local
+  caddy_data:
+  caddy_config:
 
 networks:
   fml_network:

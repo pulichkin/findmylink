@@ -1,0 +1,12 @@
+# Редирект с www.findmylink.ru на findmylink.ru
+www.findmylink.ru {
+	redir https://findmylink.ru{uri}
+}
+
+# Основной сайт
+findmylink.ru {
+	# Автоматический HTTPS через Let's Encrypt
+	reverse_proxy api:8000
+
+}
+
